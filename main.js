@@ -9,18 +9,20 @@ app.use(express.static("public"))
 app.get("/",(req, res)=>{
   console.log("Hey its a get request.");
   res.send("Response for get request.");
-});
-
-
-app.post("/",(req, res)=>{
+}).post("/",(req, res)=>{
   console.log("Hey its a post request.");
   res.send("Response for a post request.");
-});
-
-app.put("/",(req, res)=>{
+}).put("/",(req, res)=>{
   console.log("Hey its a put request.");
   res.send("Response for a put request");
 });
+
+
+app.get("/index",(req, res)=>{
+  console.log("Hey its index");
+  res.sendFile("templates/index.html", {root: __dirname});
+})
+
 
 app.listen(port, ()=>{
   console.log(`App listening on port ${port}`);
