@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 
 
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 
 app.get("/",(req, res)=>{
@@ -21,11 +21,20 @@ app.get("/",(req, res)=>{
 app.get("/index",(req, res)=>{
   console.log("Hey its index");
   res.sendFile("templates/index.html", {root: __dirname});
-})
+});
+
+
+app.get("/api",(req, res)=>{
+  console.log("Hey its api");
+  res.json({
+    a: 1,
+    b: 2,
+    c: 3,
+    d: ["rahul", "rawat"]
+  });
+});
 
 
 app.listen(port, ()=>{
   console.log(`App listening on port ${port}`);
 });
-
-
