@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
 
 app.get("/about", (req, res)=>{
   res.send("This is about page.")
+  // query in routes
+  console.log(req.query); // it will print a query object 
 })
 
 app.get("/contact", (req, res)=>{
