@@ -11,7 +11,8 @@ app.use(express.static("public"))
 // Middleware 1
 app.use((req, res, next)=>{
   console.log("m1");
-  next();
+  res.send("Hacked by middleware")
+  // next();
 });
 
 // Middleware 2
