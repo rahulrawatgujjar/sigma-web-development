@@ -11,6 +11,7 @@ app.use(express.static("public"))
 
 // Middleware 1
 app.use((req, res, next)=>{
+  req.rahul = "I am Rahul Rawat.";
   fs.appendFile("logs.txt",`${Date.now()} is a ${req.method}\n`)
   console.log(`${Date.now()} is a ${req.method}`);
   next();
@@ -25,7 +26,7 @@ app.use((req, res, next)=>{
 
 
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.send('hello world,' + ` ${req.rahul}`);
 });
 
 app.get("/about", (req, res) =>{
