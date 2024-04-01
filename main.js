@@ -37,3 +37,8 @@ app.listen(port, ()=>{
   console.log(`Sever listening at ${port}`);
 });
 
+// type of middleware
+// 1. application level: ( whole application)
+// 2. Router level: ( specific to Router ( blueprint in python))
+// 3. Error handling middleware: ( to handles errors )
+// 4. Third party : ( to add new functionality )
