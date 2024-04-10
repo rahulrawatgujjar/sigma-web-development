@@ -1,34 +1,33 @@
 // const express = require('express')
 import express from "express";
 import mongoose from "mongoose";
-import { Todo } from "./models/todo.js";
+import { DummyData } from "./models/dummydata.js";
+import { genDummyData } from "./utils/utlity.js";
 
-const conn = await mongoose.connect("mongodb://localhost:27017/todo");
+const conn = await mongoose.connect("mongodb://localhost:27017/dummydata");
 
 const app = express();
+const host = '0.0.0.0';
 const port = 3000;
 
-app.get('/', (req, res) => {
-  const todo = new Todo({
-    // title: "title of todo",
-    desc: "description of todo",
-    isDone: false,
-    days: 50
-  });
-  todo.save();
-  res.send(`${todo.title}`);
+app.use("/static",express.static("public"));
+app.set("view engine","ejs");
+
+
+app.get('/', async (req, res) => {
+  const dummyData = await DummyData.find({});
+  res.render("home", { dummyData: dummyData })
 });
 
-app.get('/a', async (req, res) => {
-  const todo = await Todo.findOne({});
-  res.json({
-    title: todo.title,
-    description: todo.desc,
-    isDone: todo.isDone,
-    days: todo.days
-  });
+app.get('/generate', async (req, res) => {
+  let dummyData = genDummyData();
+  await DummyData.deleteMany({});
+  await DummyData.insertMany(dummyData);
+  res.json(dummyData);
 });
 
-app.listen(port, () => {
+app.listen(port,host, () => {
   console.log(`Example app listening on port ${port}`)
 });
+
+

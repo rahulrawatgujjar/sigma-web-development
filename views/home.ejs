@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/home.css">
+  <title>HomePage</title>
+</head>
+
+<body>
+  <header>
+  </header>
+  <main>
+    <div class="container">
+      <div class="container-inside">
+        <div class="heading">
+          <h1>Random data</h1>
+        </div>
+        <div class="random-data">
+          <div class="part-1">
+            <% for (let i=0; i<10; i++) { %>
+              <div class="data" id="data-<%= i %>">
+                <p class="name">
+                  <b>Name</b>:
+                  <span><%= dummyData[i].name %></span>
+                </p>
+                <p class="salary">
+                  <b>Salary</b>:
+                  <span><%= dummyData[i].salary %></span>
+                </p>
+                <p class="language">
+                  <b>Language</b>:
+                  <span><%= dummyData[i].language %></span>
+                </p>
+                <p class="city">
+                  <b>City</b>:
+                  <span><%= dummyData[i].city %></span>
+                </p>
+                <p class="is-manager">
+                  <b>isManager</b>:
+                  <span><%= dummyData[i].isManager %></span>
+                </p>
+              </div>
+              <% } %>
+          </div>
+          <div class="part-2">
+            <button id="generate-btn"><b>Generate data</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="/static/js/home.js" type="module"></script>
+</body>
+
+</html>

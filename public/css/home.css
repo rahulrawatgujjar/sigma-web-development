@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+.container {
+  padding: 0px 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.part-1,.part-2 {
+  padding: 20px 20px;
+  background-color: rgb(239, 238, 238);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.data{
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  background-color: rgb(194, 194, 194);
+  opacity: .9;
+  border-radius: 10px;
+}
+
+.data p{
+  padding: 5px 0px;
+}
+
+#generate-btn{
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid rgb(204, 202, 202);
+  border-radius: 5px;
+  
+}
+
+.heading{
+  padding: 10px 0px;
+}
+
+.part-1{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.part-2{
+  background-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
+}
