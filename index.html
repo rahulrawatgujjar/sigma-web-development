@@ -1,25 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://abs.twimg.com/favicons/twitter-pip.3.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="/src/output.css">
-  <title>Design layout</title>
+  <title>Twitter Clone</title>
 </head>
-<body>
-  <main class="w-screen h-screen p-16 flex justify-center items-center" >
-    <div class="container p-4 flex gap-3 bg-black h-52 w-[calc(950px)]">
-      <div class="box-1 w-1/3 h-44 bg-[url('/public/img/sigma_bg.png')] bg-cover bg-center rounded-lg">
-      </div>
-      <div class="box-2 w-2/3 h-44">
-        <div class="first">
-          <h1 class="text-white text-sm font-medium p-2">Installing VS Code & How Website Work | Sigma Webdevelopment Course-Tutorial #1</h1>
+
+<body class="bg-black text-white">
+  <div class="outter flex container mx-auto">
+    <div class="bottom-bar custom:hidden fixed bottom-0 z-[1] bg-black/80 backdrop-blur-sm w-full">
+      <ul class="flex justify-between px-2 py-1 text-xl font-bold">
+        <li class="sidebar-item px-3">
+          <span class="material-symbols-outlined text-3xl">
+            home
+          </span>
+          <span class="hidden xl:inline">Home</span>
+        </li>
+        <li class="sidebar-item px-3">
+          <span class="material-symbols-outlined text-3xl">
+            search
+          </span>
+          <span class="hidden xl:inline">Explore</span>
+        </li>
+        <li class="sidebar-item px-3">
+          <span class="material-symbols-outlined text-3xl">
+            notifications
+          </span>
+          <span class="hidden xl:inline">Notifications</span>
+        </li>
+        <li class="sidebar-item px-3">
+          <span class="material-symbols-outlined text-3xl">
+            mail
+          </span>
+          <span class="hidden xl:inline">Messages</span>
+        </li>
+        <li class="sidebar-item px-3">
+          <i class="fa-solid fa-slash transform scale-x-[-1] border-[2.5px] p-1 text-[0.6rem] rounded-md"></i>
+          <span class="hidden xl:inline">Grok</span>
+        </li>
+      </ul>
+    </div>
+    <div class="first xl:w-[25%] w-fit hidden custom:block">
+      <div class="first-stick sticky top-4 ">
+        <div class="logo text-center my-4 flex justify-center xl:justify-end">
+          <div class="logo-box xl:min-w-[75%] w-fit px-5 py-2 text-start pl-5">
+            <i class="fa-brands fa-x-twitter text-3xl"></i>
+          </div>
         </div>
-        <div class="second">
-          <p class="text-xs text-gray-400 px-2">CodeWithHarry &#183 931K views &#183 3 months ago</p>
+        <div class="side-bar flex justify-end">
+          <ul class="flex flex-col space-y-2 w-fit xl:min-w-[75%] px-2 text-xl font-bold">
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                home
+              </span>
+              <span class="hidden xl:inline">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                search
+              </span>
+              <span class="hidden xl:inline">Explore</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                notifications
+              </span>
+              <span class="hidden xl:inline">Notifications</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                mail
+              </span>
+              <span class="hidden xl:inline">Messages</span>
+            </li>
+            <li class="sidebar-item">
+              <i class="fa-solid fa-slash transform scale-x-[-1] border-[2.5px] p-1 text-[0.6rem] rounded-md"></i>
+              <span class="hidden xl:inline">Grok</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                lists
+              </span>
+              <span class="hidden xl:inline">Lists</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                bookmark
+              </span>
+              <span class="hidden xl:inline">Bookmarks</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                group
+              </span>
+              <span class="hidden xl:inline">Communities</span>
+            </li>
+            <li class="sidebar-item">
+              <i class="fa-brands fa-x-twitter text-3xl"></i>
+              <span class="hidden xl:inline">Premium</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                person
+              </span>
+              <span class="hidden xl:inline">Profile</span>
+            </li>
+            <li class="sidebar-item">
+              <span class="material-symbols-outlined text-3xl">
+                more
+              </span>
+              <span class="hidden xl:inline">More</span>
+            </li>
+          </ul>
+        </div>
+        <div class="post-btn flex justify-end xl:pl-10 xl:pr-12 pr-2 py-5 text-lg font-bold">
+          <button class="bg-[#1D9BF0] px-10 py-3 w-9/12 rounded-full hidden xl:inline">Post</button>
+          <button class="bg-[#1D9BF0] h-14 w-14 p-3 rounded-full xl:hidden"><i
+              class="fa-solid fa-feather-pointed"></i></button>
+        </div>
+        <div class="userprofile flex justify-end items-center xl:px-10 mt-20 px-2">
+          <div class="profile flex w-fit xl:min-w-[75%] p-2  rounded-full hover:bg-[#1f2227] cursor-pointer">
+            <div class="one flex items-center justify-center">
+              <img class="w-10 rounded-full"
+                src="https://pbs.twimg.com/profile_images/1326795981212561422/9O75xh1l_bigger.jpg" alt="">
+            </div>
+            <div class="two px-3 pr-5 hidden xl:block">
+              <div class="name font-bold text-sm">Rahul Rawat</div>
+              <div class="id text-gray-500 text-sm">@RahulRa02228239</div>
+            </div>
+            <div class="three hidden xl:flex items-center">
+              <span class="material-symbols-outlined">
+                more_horiz
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </main>
+    <div class="second xl:w-[45%] w-auto border-x-[1px] border-gray-700">
+      <div class="top flex p-2 sticky top-0 bg-black/70 backdrop-blur">
+        <div class="left w-1/2 flex justify-center items-center text-[.9rem] font-bold">
+          For you
+          <div class="blue-bar h-1 w-14 bg-[#1D9BF0] rounded-full relative top-[21px] left-[-53px]"></div>
+        </div>
+        <div class="right w-1/2 flex justify-center items-center text-[.9rem] font-bold">Following</div>
+        <div class="setting">
+          <span class="material-symbols-outlined text-xl">
+            settings
+          </span>
+        </div>
+      </div>
+      <div class="line h-[1px] w-full bg-gray-700"></div>
+      <div class="whatishapp flex p-3 pb-0 gap-3">
+        <div class="img">
+          <img class="w-10 rounded-full"
+            src="	https://pbs.twimg.com/profile_images/1326795981212561422/9O75xh1l_bigger.jpg" alt="">
+        </div>
+        <div class="w-full">
+          <input class="bg-black text-white text-[1.4rem] outline-none" placeholder="What is happening?!" type="text">
+          <div class="everyone flex items-center text-sm font-bold gap-1 text-[#1D9BF0]">
+            <span class="material-symbols-outlined text-lg">
+              globe_asia
+            </span>
+            <span>Everyone can replay</span>
+          </div>
+          <div class="w-full h-[1px] bg-gray-700 mt-3"></div>
+          <div class="blue-icons flex p-3 justify-between">
+            <div class="left text-[#1D9BF0] flex items-center gap-3">
+              <span class="material-symbols-outlined cursor-pointer">
+                image
+              </span>
+              <span class="material-symbols-outlined cursor-pointer">
+                gif_box
+              </span>
+              <span class="material-symbols-outlined cursor-pointer">
+                ballot
+              </span>
+              <span class="material-symbols-outlined cursor-pointer">
+                sentiment_satisfied
+              </span>
+              <span class="material-symbols-outlined cursor-pointer">
+                calendar_clock
+              </span>
+              <span class="material-symbols-outlined cursor-pointer">
+                location_on
+              </span>
+            </div>
+            <div class="right">
+              <button class="bg-[#1D9BF0] px-5 py-2 font-bold rounded-full">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="line h-[1px] w-full bg-gray-700"></div>
+      <div class="posts">
+        <div class="post p-4 flex gap-3 cursor-pointer">
+          <div class="img">
+            <img class="rounded-full w-[5.5rem]"
+              src="https://pbs.twimg.com/profile_images/1766947602589974528/w2-67HTX_bigger.jpg" alt="">
+          </div>
+          <div class="content">
+            <div class="one">
+              <span class="font-bold hover:underline cursr">Abid H</span>
+              <span class="text-gray-500">@helpfulai · 3h</span>
+            </div>
+            <div class="two text-gray-100">
+              <span class="whitespace-pre-line">99% use Google wrong.
+
+                10 Google search tricks that HACKERS use.
+
+                (They are useful)
+              </span>
+            </div>
+            <div class="three py-3 ">
+              <img class="rounded-xl border-[1px] border-gray-500"
+                src="https://pbs.twimg.com/media/GLHEgdtXgAAUG8P?format=jpg" alt="">
+            </div>
+            <div class="icons text-sm text-gray-500 flex justify-between">
+              <div class="icon flex items-center gap-1 hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  chat_bubble
+                </span>
+                <span>27</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-green-500 hover:bg-green-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  repeat
+                </span>
+                <span>52</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-[#f91880] hover:bg-[#300419] hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  favorite
+                </span>
+                <span>189</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  bar_chart
+                </span>
+                <span>61K</span>
+              </div>
+              <div class="icon flex items-center gap-1">
+                <span
+                  class="material-symbols-outlined text-[1rem] hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                  bookmark
+                </span>
+                <span
+                  class="material-symbols-outlined text-[1rem] hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                  upload
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line h-[1px] w-full bg-gray-700"></div>
+        <div class="post p-4 flex gap-3 cursor-pointer">
+          <div class="img">
+            <img class="rounded-full w-[5.5rem]"
+              src="https://pbs.twimg.com/profile_images/1732461379972460544/nyrNL1jz_bigger.jpg" alt="">
+          </div>
+          <div class="content">
+            <div class="one">
+              <span class="font-bold hover:underline cursr">Bishal Nandi</span>
+              <span class="text-gray-500">@LearnWithBishal · 55m</span>
+            </div>
+            <div class="two text-gray-100">
+              <span class="whitespace-pre-line">If you believe that clearing your internet history is enough, you're
+                mistaken.
+
+                Your online activity is still stored.
+
+                Here's one method to completely erase your internet history and become a Digital Ghost: 🧵
+              </span>
+            </div>
+            <div class="three py-3 ">
+              <img class="rounded-xl border-[1px] border-gray-500"
+                src="https://pbs.twimg.com/media/GLI17ZnXYAAPnND?format=jpg" alt="">
+            </div>
+            <div class="icons text-sm text-gray-500 flex justify-between">
+              <div class="icon flex items-center gap-1 hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  chat_bubble
+                </span>
+                <span>27</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-green-500 hover:bg-green-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  repeat
+                </span>
+                <span>52</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-[#f91880] hover:bg-[#300419] hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  favorite
+                </span>
+                <span>189</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  bar_chart
+                </span>
+                <span>61K</span>
+              </div>
+              <div class="icon flex items-center gap-1">
+                <span
+                  class="material-symbols-outlined text-[.95rem] hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                  bookmark
+                </span>
+                <span
+                  class="material-symbols-outlined text-[.95rem] hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                  upload
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line h-[1px] w-full bg-gray-700"></div>
+        <div class="post p-4 flex gap-3 cursor-pointer">
+          <div class="img">
+            <img class="rounded-full w-[5.5rem]"
+              src="https://pbs.twimg.com/profile_images/1322567643253993472/K_VrVLtx_bigger.jpg" alt="">
+          </div>
+          <div class="content">
+            <div class="one">
+              <span class="font-bold hover:underline cursr">Python Coding</span>
+              <span class="text-gray-500">@clcoding · 15h</span>
+            </div>
+            <div class="two text-gray-100">
+              <span class="whitespace-pre-line">Remove Image Background using Python
+
+                Free Code with explanation: https://clcoding.com/2024/04/remove-image-background-using-python.html
+              </span>
+            </div>
+            <div class="three py-3 ">
+              <img class="rounded-xl border-[1px] border-gray-500"
+                src="https://pbs.twimg.com/media/GLFzqKjWcAE7A5Z?format=jpg" alt="">
+            </div>
+            <div class="icons text-sm text-gray-500 flex justify-between">
+              <div class="icon flex items-center gap-1 hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  chat_bubble
+                </span>
+                <span>27</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-green-500 hover:bg-green-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  repeat
+                </span>
+                <span>52</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-[#f91880] hover:bg-[#300419] hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  favorite
+                </span>
+                <span>189</span>
+              </div>
+              <div class="icon flex items-center gap-1 hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                <span class="material-symbols-outlined text-[.95rem]">
+                  bar_chart
+                </span>
+                <span>61K</span>
+              </div>
+              <div class="icon flex items-center gap-1">
+                <span
+                  class="material-symbols-outlined text-[.95rem] hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                  bookmark
+                </span>
+                <span
+                  class="material-symbols-outlined text-[.95rem] hover:text-blue-500 hover:bg-blue-950 hover:rounded-full p-1">
+                  upload
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line h-[1px] w-full bg-gray-700"></div>
+      </div>
+    </div>
+    <div class="third xl:min-w-[25%] w-fit hidden lg:block">
+      <div class="third-stick sticky top-2">
+        <div
+          class="search flex items-center bg-[#16181c] text-white m-3  mt-2 py-2 px-4 rounded-full min-w-[66%] text-[16px]">
+          <div class="search-symbol flex items-center">
+            <span class="material-symbols-outlined text-[22px]">
+              search
+            </span>
+          </div>
+          <input class="w-full px-4 bg-[#16181c] text-white outline-none" type="text" placeholder="Search">
+        </div>
+        <div class="whats m-3 pb-3 min-w-[66%] bg-[#16181c] rounded-xl">
+          <h1 class="text-xl font-bold p-3">What's Happening</h1>
+          <div class="item p-3 hover:bg-[#1f2227] cursor-pointer">
+            <div class="text-gray-500 text-sm">Trending In India</div>
+            <div class="font-bold">#CodeWithHarry</div>
+            <div class="text-gray-500 text-sm">120.9K posts</div>
+          </div>
+          <div class="item p-3 hover:bg-[#1f2227] cursor-pointer">
+            <div class="text-gray-500 text-sm">Trending In India</div>
+            <div class="font-bold">#SigmaWebDevelopment</div>
+            <div class="text-gray-500 text-sm">120.9K posts</div>
+          </div>
+          <div class="item p-3 hover:bg-[#1f2227] cursor-pointer">
+            <div class="text-gray-500 text-sm">Trending In India</div>
+            <div class="font-bold">#ChatGpt</div>
+            <div class="text-gray-500 text-sm">120.9K posts</div>
+          </div>
+          <div class="item p-3 hover:bg-[#1f2227] cursor-pointer">
+            <div class="text-gray-500 text-sm">Trending In India</div>
+            <div class="font-bold">#Gemini</div>
+            <div class="text-gray-500 text-sm">120.9K posts</div>
+          </div>
+        </div>
+        <div class="who m-3 min-w-[66%] bg-[#16181c] rounded-xl">
+          <h1 class="text-xl font-bold p-3">Who to follow</h1>
+          <div class="item p-3 hover:bg-[#1f2227] flex justify-between items-center cursor-pointer">
+            <div class="part-1 flex items-center gap-2">
+              <div class="left w-[2.5rem] h-[2.5rem] rounded-full bg-[url('/static/img/icon.jpg')] bg-cover"></div>
+              <div class="right">
+                <div class="font-bold">CodeWithHarry</div>
+                <div class="text-gray-500 text-sm">@codewithharry</div>
+              </div>
+            </div>
+            <div class="part-2 pl-3">
+              <button
+                class="bg-white text-black rounded-full text-sm font-bold p-[0.45rem] px-4 hover:bg-gray-200">Follow</button>
+            </div>
+          </div>
+          <div class="item p-3 hover:bg-[#1f2227] flex justify-between items-center cursor-pointer">
+            <div class="part-1 flex items-center gap-2">
+              <div class="left w-[2.5rem] h-[2.5rem] rounded-full bg-[url('/static/img/nasa.jpg')] bg-cover"></div>
+              <div class="right">
+                <div class="font-bold">Nasa</div>
+                <div class="text-gray-500 text-sm">@nasa</div>
+              </div>
+            </div>
+            <div class="part-2 pl-3">
+              <button
+                class="bg-white text-black rounded-full text-sm font-bold p-[0.45rem] px-4 hover:bg-gray-200">Follow</button>
+            </div>
+          </div>
+          <div class="item p-3 hover:bg-[#1f2227] flex justify-between items-center cursor-pointer">
+            <div class="part-1 flex items-center gap-2">
+              <div class="left w-[2.5rem] h-[2.5rem] rounded-full bg-[url('/static/img/history.jpg')] bg-cover"></div>
+              <div class="right">
+                <div class="font-bold">Physics In History</div>
+                <div class="text-gray-500 text-sm">@PhysicsInHistory</div>
+              </div>
+            </div>
+            <div class="part-2 pl-3">
+              <button
+                class="bg-white text-black rounded-full text-sm font-bold p-[0.45rem] px-4 hover:bg-gray-200">Follow</button>
+            </div>
+          </div>
+          <div class="item p-3 hover:bg-[#1f2227] text-blue-400 rounded-b-xl cursor-pointer">
+            Show more
+          </div>
+        </div>
+        <div class="terms text-gray-500 m-3 xl:max-w-[370px]  mt-4 p-3 text">
+          <span class="cursor-pointer hover:underline mr-2">Terms of Service</span>
+          <span class="cursor-pointer hover:underline mr-2">Privacy Policy</span>
+          <span class="cursor-pointer hover:underline mr-2">Cookie Policy</span>
+          <span class="cursor-pointer hover:underline mr-2">Accessibility</span>
+          <span class="cursor-pointer hover:underline mr-2">Ads info</span>
+          <span class="cursor-pointer hover:underline mr-2">More</span>
+          <span class="cursor-pointer hover:underline mr-2">© 2024 X Corp.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
