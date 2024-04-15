@@ -907,6 +907,18 @@ video {
   background-image: url('/static/img/nasa.jpg');
 }
 
+.bg-\[url\(\'static\/img\/history\.jpg\'\)\] {
+  background-image: url('static/img/history.jpg');
+}
+
+.bg-\[url\(\'static\/img\/icon\.jpg\'\)\] {
+  background-image: url('static/img/icon.jpg');
+}
+
+.bg-\[url\(\'static\/img\/nasa\.jpg\'\)\] {
+  background-image: url('static/img/nasa.jpg');
+}
+
 .bg-cover {
   background-size: cover;
 }
