@@ -6,15 +6,15 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0);
 
-  // let a=0;
-  const a = useRef(0);
+  const btnRef = useRef(null);
+  const btnCh = useRef(null);
 
   useEffect(() => {
-    // a=a+1;
-    a.current=a.current+1
-    console.log(`rendering...\nValue of a: ${a.current}`);
+    console.log(`rendering...\nValue of btnRef: ${btnRef.current}`);
+    btnRef.current.style.backgroundColor= "red";
+    btnRef.current.style.color= "white";
   });
-  
+
 
   return (
     <>
@@ -28,7 +28,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button ref={btnRef} onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
@@ -38,6 +38,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <button ref={btnCh} onClick={()=>{ btnRef.current.style.display="none"}} >Hide count btn</button>
     </>
   )
 }
