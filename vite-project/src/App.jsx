@@ -8,6 +8,28 @@ function App() {
 
   const [showBtn, setshowBtn] = useState(false);
 
+  const [todos, settodos] = useState([
+    {
+      title: "hey",
+      desc: "I am a todo"
+    },
+    {
+      title: "hello",
+      desc: "I am an another todo"
+    }
+  ]);
+
+  const Todo = ({ todo }) => {
+    return (
+      <>
+      <div className="m-2 border border-blue-500 rounded-lg">
+        <div className="todo">{todo.title}</div>
+        <div className="todo">{todo.desc}</div>
+      </div>
+      </>
+    )
+  }
+
   return (
     <>
       <div>
@@ -27,13 +49,20 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
         <div>
-          {showBtn?<button>Click me</button>:"rahul"}
+          {showBtn ? <button className="m-3">Click me</button> : "rahul"}
         </div>
         <div>
-          {showBtn && <button>Click me 2</button>}
+          {showBtn && <button className='m-3'>Click me 2</button>}
         </div>
         <div>
-          <button onClick={()=>{setshowBtn(!showBtn)}}>Change visibility</button>
+          <button className='m-3' onClick={() => { setshowBtn(!showBtn) }}>Change visibility</button>
+        </div>
+        <div className='todos m-3'>
+          {
+            todos.map((todo) => {
+              return <Todo key={todo.title} todo={todo} />
+            })
+          }
         </div>
       </div>
       <p className="read-the-docs">
