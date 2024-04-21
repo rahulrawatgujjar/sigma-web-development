@@ -1,20 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
-  const btnRef = useRef(null);
-  const btnCh = useRef(null);
-
-  useEffect(() => {
-    console.log(`rendering...\nValue of btnRef: ${btnRef.current}`);
-    btnRef.current.style.backgroundColor= "red";
-    btnRef.current.style.color= "white";
-  });
-
+  const [showBtn, setshowBtn] = useState(false);
 
   return (
     <>
@@ -28,17 +20,25 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button ref={btnRef} onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        <div>
+          {showBtn?<button>Click me</button>:"rahul"}
+        </div>
+        <div>
+          {showBtn && <button>Click me 2</button>}
+        </div>
+        <div>
+          <button onClick={()=>{setshowBtn(!showBtn)}}>Change visibility</button>
+        </div>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <button ref={btnCh} onClick={()=>{ btnRef.current.style.display="none"}} >Hide count btn</button>
     </>
   )
 }
