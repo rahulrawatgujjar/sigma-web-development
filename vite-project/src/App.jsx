@@ -19,16 +19,16 @@ function App() {
     }
   ]);
 
-  const Todo = ({ todo }) => {
-    return (
-      <>
-      <div className="m-2 border border-blue-500 rounded-lg">
-        <div className="todo">{todo.title}</div>
-        <div className="todo">{todo.desc}</div>
-      </div>
-      </>
-    )
-  }
+  // const Todo = ({ todo }) => {
+  //   return (
+  //     <>
+  //     <div className="m-2 border border-blue-500 rounded-lg">
+  //       <div className="todo">{todo.title}</div>
+  //       <div className="todo">{todo.desc}</div>
+  //     </div>
+  //     </>
+  //   )
+  // }
 
   return (
     <>
@@ -59,8 +59,16 @@ function App() {
         </div>
         <div className='todos m-3'>
           {
+            // todos.map((todo) => {
+            //   return <Todo key={todo.title} todo={todo} />
+            // })
             todos.map((todo) => {
-              return <Todo key={todo.title} todo={todo} />
+              return (
+                  <div key={todo.title} className="m-2 border border-blue-500 rounded-lg">
+                    <div className="todo">{todo.title}</div>
+                    <div className="todo">{todo.desc}</div>
+                  </div>
+              )
             })
           }
         </div>
