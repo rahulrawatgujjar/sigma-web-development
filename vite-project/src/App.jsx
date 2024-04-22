@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  const [username, setUsername] = useState("Rahul");
+  const [form, setForm] = useState({});
 
   const handleClick = ()=>{
     alert("I am a click");
@@ -16,7 +16,7 @@ function App() {
   }
 
   const handleChange = (e)=>{
-    setUsername(e.target.value);
+    setForm({...form,[e.target.name]:e.target.value});
   }
 
   return (
@@ -26,8 +26,8 @@ function App() {
     </div>
     {/* <div className="pink" onMouseOver={handleMouseOver}>
     </div> */}
-    <input type="text" value={username} onChange={handleChange} name="username" />
-
+    <input type="text" name='email' value={form.email?form.email:""} onChange={handleChange} />
+    <input type="text" name="phone" value={form.phone?form.phone:""} onChange={handleChange} />
 
     </>
   )
