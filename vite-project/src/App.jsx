@@ -1,81 +1,53 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/Navbar'
+import cardImage from "/card.jpg"
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  const [showBtn, setshowBtn] = useState(false);
+  const [posts, setposts] = useState(false)
 
-  const [todos, settodos] = useState([
-    {
-      title: "hey",
-      desc: "I am a todo"
-    },
-    {
-      title: "hello",
-      desc: "I am an another todo"
-    }
-  ]);
-
-  // const Todo = ({ todo }) => {
-  //   return (
-  //     <>
-  //     <div className="m-2 border border-blue-500 rounded-lg">
-  //       <div className="todo">{todo.title}</div>
-  //       <div className="todo">{todo.desc}</div>
-  //     </div>
-  //     </>
-  //   )
-  // }
+  useEffect(() => {
+    (async function(){
+      const response= await fetch("https://jsonplaceholder.typicode.com/posts");
+      const data= await response.json();
+      // console.log(data);
+      setposts(data);
+    })()
+  }, [])
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        <div>
-          {showBtn ? <button className="m-3">Click me</button> : "rahul"}
-        </div>
-        <div>
-          {showBtn && <button className='m-3'>Click me 2</button>}
-        </div>
-        <div>
-          <button className='m-3' onClick={() => { setshowBtn(!showBtn) }}>Change visibility</button>
-        </div>
-        <div className='todos m-3'>
-          {
-            // todos.map((todo) => {
-            //   return <Todo key={todo.title} todo={todo} />
-            // })
-            todos.map((todo) => {
-              return (
-                  <div key={todo.title} className="m-2 border border-blue-500 rounded-lg">
-                    <div className="todo">{todo.title}</div>
-                    <div className="todo">{todo.desc}</div>
-                  </div>
-              )
-            })
-          }
-        </div>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Navbar />
+    <div className="container m-auto flex flex-wrap justify-around mt-4">
+
+      { posts &&
+        posts.map((post)=>{
+          return (
+            <div key={post.id} className="card w-[95vw] sm:w-[44vw] lg:w-[28vw] m-3 p-3 pt-0 px-0 border border-purple-400 rounded-lg">
+              <div className="card-image">
+                <img className='h-[10vh] w-full object-cover rounded-t-[7px]' src={cardImage} alt="" />
+              </div>
+              <div className="id p-1 px-3">
+                <h1 className="font-bold">Id:</h1>
+                {post.id}
+              </div>
+              <div className="title p-1 px-3">
+                <h1 className="font-bold">Title:</h1>
+                {post.title}
+              </div>
+              <div className="body p-1 px-3">
+                <h1 className="font-bold">Body:</h1>
+                {post.body}
+              </div>
+            </div>
+          )
+        })
+      }
+    </div>
     </>
   )
 }
