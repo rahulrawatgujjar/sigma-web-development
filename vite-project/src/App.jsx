@@ -10,7 +10,7 @@ import User from './components/User'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 function App() {
-  
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -32,8 +32,7 @@ function App() {
 
   return (
     <>
-    <RouterProvider router={router} />
-    <div>hello i am div</div>
+      <RouterProvider router={router} />
     </>
   )
 }
