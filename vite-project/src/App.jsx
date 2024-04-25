@@ -3,36 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
-import Home from "./components/Home"
-import About from './components/About'
-import Login from './components/Login'
-import User from './components/User'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { counterContext } from './context/context'
 
 function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <><Navbar /><Home /></>
-    },
-    {
-      path: "/login",
-      element: <><Navbar /><Login /></>
-    },
-    {
-      path: "/about",
-      element: <><Navbar /><About /></>
-    },
-    {
-      path: "/user/:username",
-      element: <><Navbar /><User /></>
-    }
-  ])
+  const [count, setCount] = useState(0)
 
   return (
     <>
-      <RouterProvider router={router} />
+      <counterContext.Provider value={{count,setCount}}>
+        <Navbar/>
+        <button className='bg-green-400 m-3 p-1 border border-black rounded-md' onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+      </counterContext.Provider>
     </>
   )
 }
