@@ -1,19 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <>
-      <nav className="flex bg-indigo-900 text-white p-2 justify-between items-center fixed w-full">
-        <div className="logo mx-3">
-          <span className="font-bold text-xl">iTask</span>
-        </div>
-        <ul className="flex gap-3 mx-3">
-          <li className='cursor-pointer hover:font-bold w-[50px] flex justify-center'>Home</li>
-          <li className='cursor-pointer hover:font-bold w-[85px] flex justify-center'>Your Tasks</li>
-        </ul>
-      </nav>
-      <div className="below-nav h-[44px]"></div>
-    </>
+    <nav className='bg-pink-400 h-12 flex items-center p-3'>
+      <ul className='flex gap-3'>
+        <Link to="/"><li>Home</li></Link>
+        <Link to="/about"><li>About</li></Link>
+        <Link to="/login"><li>Login</li></Link>
+      </ul>
+    </nav>
   )
 }
 
