@@ -1,26 +1,17 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-
-const nums = new Array(30_000_000).fill(0).map((_, i) => {
-  return {
-    index: i,
-    isMagical: i === 29_000_000
-  }
-})
+import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [numbers, setNumbers] = useState(nums);
-
-  // const magical = numbers.find(item=>item.isMagical)
-  const magical = useMemo(() => numbers.find(item => item.isMagical), [numbers])
+  const [count, setCount] = useState(0)
+  const [adjective, setAdjective] = useState("good")
 
   return (
     <>
+      <Navbar adjective={adjective} />
       <div>
-        <div>Magical number is {magical.index}</div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -30,17 +21,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => {
-          setCount((count) => count + 1);
-          if (count===10){
-            setNumbers(new Array(30_000_000).fill(0).map((_, i) => {
-              return {
-                index: i,
-                isMagical: i === 1_000_000
-              }
-            }))
-          }
-        }}>
+        <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
