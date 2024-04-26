@@ -1,13 +1,19 @@
-import React,{memo} from 'react';
+import React, { memo } from 'react';
 
-const Navbar = ({adjective}) => {
+const Navbar = ({ adjective, getAdjective}) => {
 
   console.log("Navbar is rendering...");
 
   return (
-    <div>
-      I am {adjective} Navbar
-    </div>
+    <>
+      <div className="button">
+        <button >Change me</button>
+      </div>
+      <div>
+        I am {getAdjective()} Navbar
+      </div>
+    </>
+
   )
 };
 

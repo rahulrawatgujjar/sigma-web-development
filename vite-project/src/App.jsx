@@ -6,11 +6,15 @@ import Navbar from './components/Navbar';
 
 function App() {
   const [count, setCount] = useState(0)
-  const [adjective, setAdjective] = useState("good")
+
+
+  const getAdjective= ()=>{
+    return "good"+count;
+  }
 
   return (
     <>
-      <Navbar adjective={adjective} />
+      <Navbar adjective={"good"} getAdjective={getAdjective} />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
