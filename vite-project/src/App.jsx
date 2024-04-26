@@ -15,7 +15,7 @@ function App() {
     () => {
       return "good"+count;
     },
-    [],
+    [count],
   )
   
 
