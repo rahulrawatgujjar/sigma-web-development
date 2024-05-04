@@ -1,11 +1,11 @@
 import React from 'react'
 
-const blog = () => {
+const logout = () => {
   return (
     <div>
-      All blogs
+      Logout page
     </div>
   )
 }
 
-export default blog
+export default logout
