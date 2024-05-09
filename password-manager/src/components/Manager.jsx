@@ -137,7 +137,7 @@ const Manager = () => {
         </div>
         <div className="passwords">
           <h2 className='text-2xl font-bold py-2'>Your Passwords</h2>
-          <div className="outter overflow-x-scroll">
+          <div className="outter overflow-x-auto">
             {
               (passwordArray.length === 0) ? (<div>No passwords to show</div>) : (
                 <table className="table-auto w-full rounded-md overflow-hidden">
@@ -180,7 +180,7 @@ const Manager = () => {
                             </td>
                             <td className='p-2 text-center border border-white'>
                               <div className="flex items-center justify-center gap-1">
-                                <span>{item.password}</span>
+                                <span>{"*".repeat(item.password.length)}</span>
                                 <div onClick={() => { copyText(item.password) }} className="lord-icon-copy p-1 flex items-center cursor-pointer">
                                   <lord-icon
                                     src="https://cdn.lordicon.com/iykgtsbt.json"
