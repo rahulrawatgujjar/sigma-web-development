@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { v4 as uuidv4 } from 'uuid';
+import Typed from 'typed.js';
 
 
 const Manager = () => {
@@ -105,6 +106,17 @@ const Manager = () => {
     setPasswordArray(passwordArray.filter(item => item.id !== id));
   }
 
+  const el = useRef(null);
+  useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: ['Your own Password Manager'],
+      typeSpeed: 50,
+    });
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
 
   return (
     <>
@@ -115,13 +127,13 @@ const Manager = () => {
           <span>Pass</span>
           <span className='text-green-500'>Mg/&gt;</span>
         </h1>
-        <p className='text-lg text-green-900 text-center'>Your own Password Manager</p>
+        <p className='text-lg text-green-900 text-center'><span ref={el} /></p>
         <div className='flex flex-col p-4 gap-8 items-center'>
-          <input placeholder='Enter Website URL' className='rounded-full border border-green-500 p-4 py-1 w-full outline-none focus:outline-green-900 outline-offset-0' type="text" name="site" id="" value={form.site} onChange={handleChange} />
+          <input placeholder='Enter Website URL' className='rounded-full border border-green-500 p-4 py-1 w-full outline-none focus:outline-green-900 outline-offset-0' type="text" name="site" id="site" value={form.site} onChange={handleChange} />
           <div className='flex flex-col md:flex-row justify-between gap-8 w-full'>
-            <input placeholder='Enter Username' className='rounded-full border border-green-500 p-4 py-1 w-full outline-none focus:outline-green-900 outline-offset-0' type="text" name="username" id="" value={form.username} onChange={handleChange} />
+            <input placeholder='Enter Username' className='rounded-full border border-green-500 p-4 py-1 w-full outline-none focus:outline-green-900 outline-offset-0' type="text" name="username" id="username" value={form.username} onChange={handleChange} />
             <div className='relative w-full'>
-              <input ref={passRef} placeholder="Enter Password" className='rounded-full border border-green-500 p-4 py-1 w-full outline-none focus:outline-green-900 outline-offset-0' type="password" name="password" id="" value={form.password} onChange={handleChange} />
+              <input ref={passRef} placeholder="Enter Password" className='rounded-full border border-green-500 p-4 py-1 w-full outline-none focus:outline-green-900 outline-offset-0' type="password" name="password" id="password" value={form.password} onChange={handleChange} />
               <span className='absolute right-[5px] top-[5px] cursor-pointer' onClick={showPassword}>
                 <img ref={eyeRef} className='p-1' width={25} src="/icons/visibility.png" alt="eye" />
               </span>
@@ -135,7 +147,7 @@ const Manager = () => {
             <span>Save</span>
           </button>
         </div>
-        <div className="passwords">
+        <div className="passwords mt-3">
           <h2 className='text-2xl font-bold py-2'>Your Passwords</h2>
           <div className="outter overflow-x-auto">
             {
@@ -156,7 +168,7 @@ const Manager = () => {
                           <tr key={index}>
                             <td className='p-2 text-center border border-white'>
                               <div className="flex items-center justify-center gap-1">
-                                <a href={item.site} target='_blank'>{item.site}</a>
+                                <a className='hover:text-green-700' href={(item.site.startsWith("https://")) ? item.site : ("https://" + item.site)} target='_blank'>{item.site}</a>
                                 <div onClick={() => { copyText(item.site) }} className="lord-icon-copy p-1 flex items-center cursor-pointer">
                                   <lord-icon
                                     src="https://cdn.lordicon.com/iykgtsbt.json"
