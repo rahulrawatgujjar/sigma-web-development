@@ -35,31 +35,31 @@ const UserPage = ({ params }: { params: { username: string } }) => {
               <li className='flex gap-3 items-center'>
                 <Image height={25} className='rounded-full object-cover object-center' width={25} src="/avatar.jpeg" alt="" />
                 <div>
-                  <span className='font-bold'>Surender</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>"I support you bro with lots of loves"</span>
+                  <span className='font-bold'>Surender</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>&quot;I support you bro with lots of loves&quot;</span>
                 </div>
               </li>
               <li className='flex gap-3 items-center'>
                 <Image height={25} className='rounded-full object-cover object-center' width={25} src="/avatar.jpeg" alt="" />
                 <div>
-                  <span className='font-bold'>Anubhav</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>"I support you bro with lots of loves"</span>
+                  <span className='font-bold'>Anubhav</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>&quot;I support you bro with lots of loves&quot;</span>
                 </div>
               </li>
               <li className='flex gap-3 items-center'>
                 <Image height={25} className='rounded-full object-cover object-center' width={25} src="/avatar.jpeg" alt="" />
                 <div>
-                  <span className='font-bold'>Sahil</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>"I support you bro with lots of loves"</span>
+                  <span className='font-bold'>Sahil</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>&quot;I support you bro with lots of loves&quot;</span>
                 </div>
               </li>
               <li className='flex gap-3 items-center'>
                 <Image height={25} className='rounded-full object-cover object-center' width={25} src="/avatar.jpeg" alt="" />
                 <div>
-                  <span className='font-bold'>Vijay</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>"I support you bro with lots of loves"</span>
+                  <span className='font-bold'>Vijay</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>&quot;I support you bro with lots of loves&quot;</span>
                 </div>
               </li>
               <li className='flex gap-3 items-center'>
                 <Image height={25} className='rounded-full object-cover object-center' width={25} src="/avatar.jpeg" alt="" />
                 <div>
-                  <span className='font-bold'>Yudhister</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>"I support you bro with lots of loves"</span>
+                  <span className='font-bold'>Yudhister</span> donated <span className='font-bold'>&#x20B9; 10,000</span> with a message <span>&quot;I support you bro with lots of loves&quot;</span>
                 </div>
               </li>
             </ul>
