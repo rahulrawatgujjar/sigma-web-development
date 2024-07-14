@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const HomePage = () => {
@@ -7,7 +8,7 @@ const HomePage = () => {
         <h1 className='font-bold text-3xl flex items-center gap-3'>
           Get me a Lassi
           <span>
-            <img src="/lassi.png" alt="lassi" width={60} />
+            <Image src="/lassi.png" alt="lassi" width={60} height={60} />
           </span>
         </h1>
         <p className='text-center'>A crowdfunding platform for creators. Get funded by your fans and followers.</p>
@@ -31,17 +32,17 @@ const HomePage = () => {
         <h2 className='font-bold text-2xl mb-10 text-center'>Your fans can buy you a Lassi</h2>
         <div className='flex gap-5 justify-around'>
           <div className="item flex flex-col items-center gap-1">
-            <img className='bg-slate-800 rounded-full p-3' src="groot.png" alt="man" width={88} />
+            <Image className='bg-slate-800 rounded-full p-3' src="/groot.png" alt="man" width={88} height={88} />
             <p className='font-bold text-center'>Fans want to help</p>
             <p className='text-center'>Your fans are available to support you</p>
           </div>
           <div className="item flex flex-col items-center gap-1">
-            <img className='bg-slate-800 rounded-full p-3' src="coin.png" alt="coin" width={88} />
+            <Image className='bg-slate-800 rounded-full p-3' src="/coin.png" alt="coin" width={88} height={88} />
             <p className='font-bold text-center'>Fans want to contribute</p>
             <p className='text-center'>Your fans are willing to contribute financially</p>
           </div>
           <div className="item flex flex-col items-center gap-1">
-            <img className='bg-slate-800 rounded-full p-3' src="group.png" alt="man" width={88} />
+            <Image className='bg-slate-800 rounded-full p-3' src="/group.png" alt="man" width={88} height={88} />
             <p className='font-bold text-center'>Fans want to collaborate</p>
             <p className='text-center'>Your fans are ready to collaborate with you</p>
           </div>

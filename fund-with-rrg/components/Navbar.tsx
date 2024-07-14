@@ -1,5 +1,6 @@
 "use client"
 import { signOut, useSession } from 'next-auth/react'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -13,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className='bg-slate-900 text-white h-16 flex justify-between items-center px-4'>
       <Link href="/" className="logo font-bold cursor-pointer text-lg flex items-center gap-2">
-        <img src="/lassi.png" alt="lassi" width={25} />
+        <Image src="/lassi.png" alt="lassi" width={25} height={25} />
         <span>GetMeALassi</span>
       </Link>
 
